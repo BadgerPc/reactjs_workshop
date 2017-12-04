@@ -6,8 +6,8 @@ import Repositories from './components/repositories'
 const App = props =>
   <div>
     <Header />
-    <UserInfo />
-    <Repositories />
+    <UserInfo data={props.data} />
+    <Repositories repos={props.data.repos}/>
   </div>
 
 export default App

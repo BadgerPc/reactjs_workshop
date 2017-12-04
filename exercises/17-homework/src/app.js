@@ -1,11 +1,15 @@
 import React from 'react'
+import Header from './components/header.js'
+import Tasks from './components/tasks.js'
+import data from './data.js'
 
 class App extends React.Component {
-  constructor(props) {
-    super(props)
-  }
+
   render() {
-    return <div>Hello</div>
+    return <div>
+        <Header />
+        <Tasks data={data}/>
+    </div>
   }
 }
 

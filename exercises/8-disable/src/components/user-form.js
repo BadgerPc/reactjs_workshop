@@ -4,7 +4,7 @@ class UserForm extends React.Component {
   constructor(props) {
     super(props)
     /* set your initial state here */
-    this.state = {}
+    this.state = { disabled: true}
   }
   onChange(event) {
     /*
@@ -12,6 +12,11 @@ class UserForm extends React.Component {
       event.target.value
       You can use it to change the state
     */
+    if ( event.target.value){
+      this.setState({disabled: false})
+    }else{
+      this.setState({disabled: true})
+    }
   }
   render() {
     return (
@@ -23,7 +28,7 @@ class UserForm extends React.Component {
           placeholder="github username"
         />
         {/* disabled should be decided on a value from state */}
-        <button disabled={true}>See profile</button>
+        <button disabled={this.state.disabled}>See profile</button>
       </div>
     )
   }

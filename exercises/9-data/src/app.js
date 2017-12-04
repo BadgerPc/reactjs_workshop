@@ -8,24 +8,45 @@ import fetchData from './data-fetcher'
 class App extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { data: {} }
+    this.state = { data: {} , loading: false}
+    //this.fetchRepoDetail = this.fetchRepoDetail.bind(this);
   }
+
   render() {
     return (
-      <div>
-        <Header />
-        <UserForm />
         <div>
-          <UserInfo
-            name={this.props.data.name}
-            avatar={this.props.data.avatar}
-            url={this.props.data.url}
-            description={this.props.data.description}
-          />
-          <Repositories repos={this.props.data.repos} />
+          <Header />
+          <UserForm initialValue={this.props.initialValue} onClick={this.fetchRepoDetail.bind(this)}/>
+          {
+            this.state.loading ? <UserInfo name="loading..." /> : null
+          }
+
+          {(this.state.data.name && !this.state.loading ? <div>
+              <UserInfo
+                name={this.state.data.name}
+                avatar={this.state.data.avatar}
+                url={this.state.data.url}
+                description={this.state.data.description}
+              />
+              <Repositories repos={this.state.data.repos} />
+          </div> : null )}
         </div>
-      </div>
-    )
+      )
+  }
+
+  componentDidMount(){
+    fetchData(this.props.initialValue).then( (data) => {
+      this.setState({data: data, loading: false}) 
+    });
+  }
+
+  fetchRepoDetail(username){
+    console.log(username);
+    this.setState({loading: true});
+
+    fetchData(username).then( (data) => {
+      this.setState({data: data, loading: false}) 
+    });
   }
 }
 export default App

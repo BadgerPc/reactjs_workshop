@@ -23,12 +23,12 @@ class UserForm extends React.Component {
           placeholder="github username"
           defaultValue={this.props.initialUser}
         />
-        <button
+        <Button
           onClick={this.onClick.bind(this)}
           disabled={this.state.disabled}
         >
           See profile
-        </button>
+        </Button>
       </div>
     )
   }

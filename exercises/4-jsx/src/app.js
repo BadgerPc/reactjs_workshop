@@ -1,10 +1,16 @@
 import React from 'react'
 
 const App = () =>
-  <div>
-    {/* Add your content here */}
-    Hello World!
-    {/* Add your content here */}
-  </div>
+    <div>
+        <div className="header">
+            <img src="logo.png" className="logo" alt="logo"/>
+        </div>
+
+        <div className="user-form">
+            <img src="logo.png" className="logo big" alt="logo"/>
+            <input type="text" name="username" placeholder="github username" />
+            <button>See profile</button>
+        </div>
+    </div>
 
 export default App

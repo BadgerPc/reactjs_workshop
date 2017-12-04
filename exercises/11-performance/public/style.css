@@ -1,14 +1,4 @@
-body {
-  margin: 0;
-  padding: 0;
-  background: #eee;
-}
 
-body,
-input,
-button {
-  font-family: 'Nunito', sans-serif;
-}
 
 .header {
   height: 30px;

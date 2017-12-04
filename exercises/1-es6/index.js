@@ -3,9 +3,11 @@
   Task 2: Replace ES5 function with arrow function
 */
 
-const greet = name => {
-  let greeting = 'Hello ' + name
+var greet = function(name){
+  var greeting = 'Hello ' + name
   return greeting
 }
+
+
 
 module.exports = greet
